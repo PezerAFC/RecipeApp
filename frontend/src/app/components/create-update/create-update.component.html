@@ -19,13 +19,13 @@
     <div class="form-group">
         <label for="ingredients">Ingredients</label>
         <input type="text" name="ingredients" [(ngModel)]="recipe.ingredients" class="form-control">
+        <ng-container *ngIf="recipe && recipe.ingredients">
+            <p *ngIf="recipe.ingredients.length <3" class="text-danger" role="alert">Ingredients should be at least 3
+                characters
+                long!
+            </p>
+        </ng-container>
     </div>
-    <ng-container *ngIf="recipe && recipe.ingredients">
-        <p *ngIf="recipe.ingredients.length <3" class="text-danger" role="alert">Ingredients should be at least 3
-            characters
-            long!
-        </p>
-    </ng-container>
     <ng-container *ngIf="recipe">
         <input [disabled]="!recipe.name || !recipe.description || !recipe.ingredients || recipe.name.length <5 ||
                 recipe.description.length <10 || recipe.ingredients.length <3" type="submit" value="Submit"
