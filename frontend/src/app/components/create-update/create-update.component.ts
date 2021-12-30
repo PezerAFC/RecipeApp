@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
 })
 export class CreateUpdateComponent implements OnInit {
   public recipe: Recipe;
+  public isValid: false;
   constructor(private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit(): void {
     this.recipe = this.recipeService.getter();
+    this.isValid = false;
   }
   createOrUpdate() {
     if (this.recipe._id == undefined) {
@@ -37,4 +39,5 @@ export class CreateUpdateComponent implements OnInit {
       )
     }
   }
+
 }

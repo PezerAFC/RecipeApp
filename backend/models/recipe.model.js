@@ -11,7 +11,10 @@ module.exports = mongoose => {
             type: String,
             required: true
         },
-        ingredients: [String]
+        ingredients: {
+            type: [String],
+            required: true
+        }
 
     });
     recipeSchema.plugin(mongoosePaginate);

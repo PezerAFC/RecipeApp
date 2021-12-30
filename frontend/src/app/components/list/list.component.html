@@ -46,7 +46,11 @@
       </tr>
     </tbody>
   </table>
-  <div *ngIf="!recipes.length">No recipes found</div>
+  <ng-container *ngIf="recipes">
+    <div *ngIf="!recipes.length" class="alert alert-danger" role="alert">
+      There is no recipes with that name or ingredient, check all <a href="/" class="alert-link">recipes</a>
+    </div>
+  </ng-container>
   <div class="d-flex justify-content-center" *ngIf="!search">
     <pagination-controls [responsive]=true previousLabel="Prev" nextLabel="Next"
       (pageChange)="handlePageChange($event)">

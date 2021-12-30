@@ -3,13 +3,32 @@
         <label for="name">Name</label>
         <input type="text" name="name" [(ngModel)]="recipe.name" class="form-control">
     </div>
+    <ng-container *ngIf="recipe && recipe.name">
+        <p *ngIf="recipe.name.length <5" class="text-danger" role="alert">Name should be at least 5 characters long!
+        </p>
+    </ng-container>
     <div class="form-group">
         <label for="description">Description</label>
         <input type="text" name="description" [(ngModel)]="recipe.description" class="form-control">
     </div>
+    <ng-container *ngIf="recipe && recipe.description">
+        <p *ngIf="recipe.description.length <10" class="text-danger" role="alert">Description should be at least 10
+            characters long!
+        </p>
+    </ng-container>
     <div class="form-group">
         <label for="ingredients">Ingredients</label>
         <input type="text" name="ingredients" [(ngModel)]="recipe.ingredients" class="form-control">
     </div>
-    <input type="submit" value="Submit" class="btn btn-success">
+    <ng-container *ngIf="recipe && recipe.ingredients">
+        <p *ngIf="recipe.ingredients.length <3" class="text-danger" role="alert">Ingredients should be at least 3
+            characters
+            long!
+        </p>
+    </ng-container>
+    <ng-container *ngIf="recipe">
+        <input [disabled]="!recipe.name || !recipe.description || !recipe.ingredients || recipe.name.length <5 ||
+                recipe.description.length <10 || recipe.ingredients.length <3" type="submit" value="Submit"
+            class="btn btn-success">
+    </ng-container>
 </form>

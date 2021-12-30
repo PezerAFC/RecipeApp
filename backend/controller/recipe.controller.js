@@ -100,7 +100,7 @@ const findAllName = (req, res) => {
             "$options": "i"
         }
     }).sort({
-        _id: -1
+        name: 1
     }).exec((err, recipes) => {
         if (err) {
             console.log(err.message);
@@ -118,7 +118,7 @@ const findAllIng = (req, res) => {
             "$options": "i"
         }
     }).sort({
-        _id: -1
+        name: 1
     }).exec((err, recipes) => {
         if (err) {
             console.log(err.message);
