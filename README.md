@@ -1,7 +1,7 @@
 Recipe App 
 
 Implemented:
-- Basic CRUD operations forČ
+- Basic CRUD operations for:
     - create
     - read
     - update
